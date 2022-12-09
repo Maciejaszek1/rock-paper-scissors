@@ -15,11 +15,12 @@ function getComputerChoice(){
 
 function oneRound(choice, pcChoice){
     
-    let b = choice
-    let c = pcChoice
     let a = ""
     
-    if (b == c){
+    console.log(choice)
+    console.log(pcChoice)
+
+    if (choice == pcChoice){
         a = "Tie!"
     } else if (choice == "rock" && pcChoice == "scissors" || choice == "paper" && pcChoice == "rock" || choice == "scissors" && pcChoice == "paper"){
         a = "Player WINS!"
@@ -31,7 +32,6 @@ function oneRound(choice, pcChoice){
 }
 
 let choice = prompt()
+let pcChoice = getComputerChoice()
 
-console.log(choice)
-console.log(getComputerChoice())
-console.log(oneRound(choice,getComputerChoice))
+console.log(oneRound(choice,pcChoice))
