@@ -30,8 +30,9 @@ function oneRound(choice, pcChoice){
 
     return a
 }
-
+/*
 let choice = prompt()
 let pcChoice = getComputerChoice()
 
 console.log(oneRound(choice,pcChoice))
+*/

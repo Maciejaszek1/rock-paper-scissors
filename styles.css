@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.header {
+
+}
+
+.container {
+    justify-self: center;
+    height: 55vh;
+    width: 80vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.playerPanel, .pcPanel {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.panel {
+    border: 1px;
+    border-color: #2a2a29;
+    border-style: solid;
+    border-radius: 16px;
+    width:15vh;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.emoji {
+    font-size: 80px;
+}
+
