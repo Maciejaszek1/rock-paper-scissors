@@ -5,10 +5,14 @@ body {
     align-items: center;
     justify-content: space-between;
     min-height: 100vh;
+    font-family: Roboto, Helvetica, sans-serif;
 }
 
 .header {
-    
+    height: 5vh;
+    display: flex;
+    align-items: center;
+
 }
 
 .container {
