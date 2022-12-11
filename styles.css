@@ -37,9 +37,38 @@ body {
 /*//// GAME OUTCOME ////*/
 
 .outcome {
-    
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    border: 0px;
+    border-style: solid;
+    border-radius: 16px;
+    background-color: #495579; 
 }
 
+.score {
+    margin-top: 5vh;
+    border: 0px;
+    border-style: solid;
+    border-radius: 16px;
+    width: 80%;
+    height: 15vh;
+    background-color: #263159;
+    color: #FFFBEB;
+}
+
+.winner {
+    border: 0px;
+    border-style: solid;
+    border-radius: 16px;
+    width: 80%;
+    max-height: 35vh;
+    background-color: #263159;
+    color: #FFFBEB;
+    flex-grow: 1;
+}
 /*//// PANELS & BUTTONS ////*/
 
 .playerPanel, .pcPanel {
@@ -52,8 +81,8 @@ body {
     border-style: solid;
     border-radius: 16px;
     background-color: #495579;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 
 .panel {
