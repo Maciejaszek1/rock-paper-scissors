@@ -19,7 +19,7 @@ body {
 }
 
 .hText {
-    color: #efefef;
+    color: #FFFBEB;
     font-size: 42px;
     font-weight: 500;
 }
@@ -39,7 +39,6 @@ body {
     align-items: center;
     gap: 5vh;
     border: 0px;
-    border-color: #efefef;
     border-style: solid;
     border-radius: 16px;
     background-color: #495579;
@@ -49,7 +48,6 @@ body {
 
 .panel {
     border: 0px;
-    border-color: #efefef;
     border-style: solid;
     border-radius: 16px;
     width:15vh;
@@ -59,10 +57,24 @@ body {
     align-items: center;
     justify-content: space-around;
     background-color: #263159;
-    color: #efefef;
+    color: #FFFBEB;
 }
 
 .emoji {
     font-size: 80px;
 }
 
+.footer{
+    width:100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #263159;
+}
+
+.fText {
+    color: #FFFBEB;
+    text-decoration: none;
+    font-size: 18px;
+}
