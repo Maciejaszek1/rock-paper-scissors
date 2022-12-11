@@ -1,3 +1,5 @@
+
+//PC DECISION MAKING//
 function getComputerChoice(){
 
     let b = Math.floor(Math.random() * 3)
@@ -13,6 +15,7 @@ function getComputerChoice(){
     return b
 }
 
+//PLAYING ONE ROUND//
 function oneRound(choice, pcChoice){
     
     let a = ""
@@ -30,6 +33,9 @@ function oneRound(choice, pcChoice){
 
     return a
 }
+
+//TEST//
+
 /*
 let choice = prompt()
 let pcChoice = getComputerChoice()

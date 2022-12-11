@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-
+    
 }
 
 .container {
@@ -37,6 +37,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    background-color: #efefef;
 }
 
 .emoji {
