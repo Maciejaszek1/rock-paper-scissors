@@ -16,29 +16,56 @@ function getComputerChoice(){
 }
 
 //PLAYING ONE ROUND//
-function oneRound(choice, pcChoice){
-    
-    let a = ""
-    
+function oneRound(){
+
+    let choice = prompt()
+    let pcChoice = getComputerChoice()
+
     console.log(choice)
     console.log(pcChoice)
 
     if (choice == pcChoice){
-        a = "Tie!"
+        return "Tie!"
     } else if (choice == "rock" && pcChoice == "scissors" || choice == "paper" && pcChoice == "rock" || choice == "scissors" && pcChoice == "paper"){
-        a = "Player WINS!"
+        return "Player WINS!"
     } else {
-        a = "The Machine WINS!"
+        return "The Machine WINS!"
+    }
+}
+
+//PLAYING FIVE ROUNDS//
+
+function fiveRounds() {
+    let countPC = 0
+    let countPlayer = 0
+    let x = 0
+
+    
+    while (countPC < 3 && countPlayer < 3) {
+        let whoW = oneRound()
+
+        if (whoW == "The Machine WINS!"){
+            countPC++
+        } else if (whoW == "Player WINS!") {
+            countPlayer++
+        } else continue
+
+        console.log(countPlayer + " : " + countPC)
     }
 
-    return a
+    /*
+    while(x<3){
+        let a = oneRound()
+        console.log(a)
+
+        if(a == "Player WINS!" || a == "The Machine WINS!" || a == "Tie!"){
+            x++
+        }
+        else {break}
+    }*/
 }
+
 
 //TEST//
 
-/*
-let choice = prompt()
-let pcChoice = getComputerChoice()
-
-console.log(oneRound(choice,pcChoice))
-*/
+console.log(fiveRounds())
