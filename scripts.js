@@ -2,17 +2,17 @@
 //PC DECISION MAKING//
 function getComputerChoice(){
 
-    let b = Math.floor(Math.random() * 3)
+    let pcChoice = Math.floor(Math.random() * 3)
 
-    if (b == 0){
-        b = "rock"
-    } else if (b == 1) {
-        b = "paper"
-    } else if (b == 2) {
-        b = "scissors"
+    if (pcChoice == 0){
+        pcChoice = "rock"
+    } else if (pcChoice == 1) {
+        pcChoice = "paper"
+    } else if (pcChoice == 2) {
+        pcChoice = "scissors"
     }
 
-    return b
+    return pcChoice
 }
 
 //PLAYING ONE ROUND//
@@ -36,33 +36,23 @@ function oneRound(){
 //PLAYING FIVE ROUNDS//
 
 function game() {
+    
     let countPC = 0
     let countPlayer = 0
-    let x = 0
 
     
     while (countPC < 3 && countPlayer < 3) {
-        let whoW = oneRound()
+        let whoWon = oneRound()
 
-        if (whoW == "The Machine WINS!"){
+        if (whoWon == "The Machine WINS!"){
             countPC++
-        } else if (whoW == "Player WINS!") {
+        } else if (whoWon == "Player WINS!") {
             countPlayer++
         }
 
         console.log(countPlayer + " : " + countPC)
     }
 
-    /*
-    while(x<3){
-        let a = oneRound()
-        console.log(a)
-
-        if(a == "Player WINS!" || a == "The Machine WINS!" || a == "Tie!"){
-            x++
-        }
-        else {break}
-    }*/
 }
 
 
