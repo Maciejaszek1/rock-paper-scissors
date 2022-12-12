@@ -18,8 +18,8 @@ function getComputerChoice(){
 //PLAYING ONE ROUND//
 function oneRound(){
 
-    let choice = prompt()
-    let pcChoice = getComputerChoice()
+    let choice = prompt().toUpperCase()
+    let pcChoice = getComputerChoice().toUpperCase()
 
     console.log(choice)
     console.log(pcChoice)
@@ -35,7 +35,7 @@ function oneRound(){
 
 //PLAYING FIVE ROUNDS//
 
-function fiveRounds() {
+function game() {
     let countPC = 0
     let countPlayer = 0
     let x = 0
@@ -48,7 +48,7 @@ function fiveRounds() {
             countPC++
         } else if (whoW == "Player WINS!") {
             countPlayer++
-        } else continue
+        }
 
         console.log(countPlayer + " : " + countPC)
     }
@@ -68,4 +68,4 @@ function fiveRounds() {
 
 //TEST//
 
-console.log(fiveRounds())
+console.log(game())
