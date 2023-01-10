@@ -5,31 +5,37 @@ function getComputerChoice(){
     let pcChoice = Math.floor(Math.random() * 3)
 
     if (pcChoice == 0){
-        pcChoice = "rock"
+        pcChoice = "rock";
     } else if (pcChoice == 1) {
-        pcChoice = "paper"
+        pcChoice = "paper";
     } else if (pcChoice == 2) {
-        pcChoice = "scissors"
+        pcChoice = "scissors";
     }
 
-    return pcChoice
+    return pcChoice;
 }
 
 //PLAYING ONE ROUND//
 function oneRound(){
 
-    let choice = prompt().toUpperCase()
-    let pcChoice = getComputerChoice().toUpperCase()
+    let choice = this.id;
+    let pcChoice = getComputerChoice().toUpperCase();
 
-    console.log(choice)
-    console.log(pcChoice)
+    console.log(choice);
+    console.log(pcChoice);
 
     if (choice == pcChoice){
-        return "Tie!"
-    } else if (choice == "rock" && pcChoice == "scissors" || choice == "paper" && pcChoice == "rock" || choice == "scissors" && pcChoice == "paper"){
-        return "Player WINS!"
+        return "Tie!";
+
+    } else if (choice == "rock" && pcChoice == "scissors" ||
+        choice == "paper" && pcChoice == "rock" ||
+        choice == "scissors" && pcChoice == "paper"){
+        
+            return "Player WINS!";
+
     } else {
-        return "The Machine WINS!"
+        return "The Machine WINS!";
+
     }
 }
 
@@ -37,25 +43,34 @@ function oneRound(){
 
 function game() {
     
-    let countPC = 0
-    let countPlayer = 0
+    let countPC = 0;
+    let countPlayer = 0;
 
     
     while (countPC < 3 && countPlayer < 3) {
-        let whoWon = oneRound()
+        let whoWon = oneRound();
 
         if (whoWon == "The Machine WINS!"){
-            countPC++
+            countPC++;
         } else if (whoWon == "Player WINS!") {
-            countPlayer++
+            countPlayer++;
         }
 
-        console.log(countPlayer + " : " + countPC)
+        console.log(countPlayer + " : " + countPC);
     }
 
 }
 
 
 //TEST//
+//document.getElementById('rock').addEventListener('click', oneRound);
+const divs = document.querySelectorAll('button');
 
-console.log(game())
+function logText() {
+  console.log(this.id);
+
+}
+
+divs.forEach(div => div.addEventListener('click', game,{
+  capture: false,
+}));

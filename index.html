@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗿</text></svg>">
     <title>Rock Paper Scissors</title>
 </head>
@@ -15,15 +14,15 @@
         <a class="hText">Rock, Paper, Scissors!</a></div>
     <div class="container">
         <div class="playerPanel">
-            <button class="panel">
+            <button class="panel" id = "rock">
                 <a class="emoji">🗿</a>
                 <a class="text">Rock</a>
             </button>
-            <button class="panel">
+            <button class="panel" id = "paper">
                 <a class="emoji">🧻</a>
                 <a class="text">Paper</a>
             </button>
-            <button class="panel">
+            <button class="panel" id = "scissors">
                 <a class="emoji">✂️</a>
                 <a class="text">Scissors</a>
             </button>
@@ -52,5 +51,6 @@
         </div>
     </div>
     <div class="footer"><a class="fText" href="https://github.com/Maciejaszek1">Made by Maciej Syguła</a></div>
+    <script src="scripts.js"></script>
 </body>
 </html>
