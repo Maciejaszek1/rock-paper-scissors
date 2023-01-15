@@ -18,25 +18,29 @@ function getComputerChoice(){
 //PLAYING ONE ROUND//
 function oneRound(){
 
-    let choice = this.id;
-    let pcChoice = getComputerChoice().toUpperCase();
+    let countPC = 0;
+    let countPlayer = 0;
+    const choice = this.id;
+    const pcChoice = getComputerChoice().toLowerCase();
 
     console.log(choice);
     console.log(pcChoice);
 
     if (choice == pcChoice){
-        return "Tie!";
+        whoWon = "Tie!";
 
     } else if (choice == "rock" && pcChoice == "scissors" ||
         choice == "paper" && pcChoice == "rock" ||
         choice == "scissors" && pcChoice == "paper"){
         
-            return "Player WINS!";
+            countPlayer++;
+            whoWon = "Player WINS!";
 
     } else {
-        return "The Machine WINS!";
-
+        countPC++;
+        whoWon = "The Machine WINS!";
     }
+    console.log(whoWon +"\n"+ countPlayer + " : " + countPC);
 }
 
 //PLAYING FIVE ROUNDS//
@@ -71,6 +75,6 @@ function logText() {
 
 }
 
-divs.forEach(div => div.addEventListener('click', game,{
+divs.forEach(div => div.addEventListener('click', oneRound,{
   capture: false,
 }));
