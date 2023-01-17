@@ -15,16 +15,36 @@ function getComputerChoice(){
     return pcChoice;
 }
 
+//Displays score and winner onto adequate divs
+function displayOutcome(winner){
+    //const scoreContainer = document.querySelector('.score');
+    const winnerContainer = document.querySelector('.winner');
+    /*
+    const scoreContent = document.createElement('div');
+    scoreContent.classList.add('scoreText');
+    scoreContent.textContent = score;
+*/
+    const winnerContent = document.createElement('div');
+    winnerContent.classList.add('winnerContent');
+    winnerContent.textContent = winner;
+
+    //scoreContainer.appendChild(scoreContent);
+    winnerContainer.appendChild(winnerContent);
+}
+
+function blockButtons(){
+    document.getElementById('rock').disabled = "true";
+    document.getElementById('paper').disabled = "true";
+    document.getElementById('scissors').disabled = "true";
+}
+
 //PLAYING ONE ROUND//
 function oneRound(){
 
-    let countPC = 0;
-    let countPlayer = 0;
     const choice = this.id;
     const pcChoice = getComputerChoice().toLowerCase();
 
-    console.log(choice);
-    console.log(pcChoice);
+    blockButtons();
 
     if (choice == pcChoice){
         whoWon = "Tie!";
@@ -32,15 +52,13 @@ function oneRound(){
     } else if (choice == "rock" && pcChoice == "scissors" ||
         choice == "paper" && pcChoice == "rock" ||
         choice == "scissors" && pcChoice == "paper"){
-        
-            countPlayer++;
             whoWon = "Player WINS!";
 
     } else {
-        countPC++;
         whoWon = "The Machine WINS!";
     }
-    console.log(whoWon +"\n"+ countPlayer + " : " + countPC);
+
+    return displayOutcome(whoWon);
 }
 
 //PLAYING FIVE ROUNDS//
@@ -49,6 +67,7 @@ function game() {
     
     let countPC = 0;
     let countPlayer = 0;
+    
 
     
     while (countPC < 3 && countPlayer < 3) {
@@ -58,22 +77,16 @@ function game() {
             countPC++;
         } else if (whoWon == "Player WINS!") {
             countPlayer++;
-        }
+        } else 
 
-        console.log(countPlayer + " : " + countPC);
+        return displayOutcome(whoWon, countPlayer + " : " + countPC);    
     }
-
 }
 
 
 //TEST//
-//document.getElementById('rock').addEventListener('click', oneRound);
+
 const divs = document.querySelectorAll('button');
-
-function logText() {
-  console.log(this.id);
-
-}
 
 divs.forEach(div => div.addEventListener('click', oneRound,{
   capture: false,
