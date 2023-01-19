@@ -2,92 +2,137 @@
 //PC DECISION MAKING//
 function getComputerChoice(){
 
-    let pcChoice = Math.floor(Math.random() * 3)
+    let pcChoice = Math.floor(Math.random() * 3);
 
     if (pcChoice == 0){
         pcChoice = "rock";
+        pcPanel = document.getElementById('pcRock');
+        pcPanel.classList.add('pcChoice');
     } else if (pcChoice == 1) {
         pcChoice = "paper";
+        pcPanel = document.getElementById('pcPaper');
+        pcPanel.classList.add('pcChoice');
     } else if (pcChoice == 2) {
         pcChoice = "scissors";
+        pcPanel = document.getElementById('pcScissors');
+        pcPanel.classList.add('pcChoice');
     }
 
     return pcChoice;
 }
 
+function rmChoices(){
+    pcPanel.classList.remove('pcChoice');
+    rock.classList.remove('playerChoice');
+    paper.classList.remove('playerChoice');
+    scissors.classList.remove('playerChoice');
+}
+
 //Displays score and winner onto adequate divs
-function displayOutcome(winner){
-    //const scoreContainer = document.querySelector('.score');
+function displayOutcome(winner, score){
+    const scoreContainer = document.querySelector('.score');
     const winnerContainer = document.querySelector('.winner');
-    /*
+    
     const scoreContent = document.createElement('div');
     scoreContent.classList.add('scoreText');
     scoreContent.textContent = score;
-*/
+
     const winnerContent = document.createElement('div');
-    winnerContent.classList.add('winnerContent');
+    winnerContent.classList.add('winnerText');
     winnerContent.textContent = winner;
 
-    //scoreContainer.appendChild(scoreContent);
+    scoreContainer.appendChild(scoreContent);
     winnerContainer.appendChild(winnerContent);
 }
 
-function blockButtons(){
-    document.getElementById('rock').disabled = "true";
-    document.getElementById('paper').disabled = "true";
-    document.getElementById('scissors').disabled = "true";
+//Clears refreshes display
+function clearOutcome(){
+    document.querySelector('.scoreText').remove();
+    document.querySelector('.winnerText').remove();
 }
 
 //PLAYING ONE ROUND//
-function oneRound(){
-
-    const choice = this.id;
-    const pcChoice = getComputerChoice().toLowerCase();
-
-    blockButtons();
-
+function oneRound(choice){
+    let pcChoice = getComputerChoice().toLowerCase();
+    
     if (choice == pcChoice){
-        whoWon = "Tie!";
+        return "Tie!";
 
-    } else if (choice == "rock" && pcChoice == "scissors" ||
-        choice == "paper" && pcChoice == "rock" ||
-        choice == "scissors" && pcChoice == "paper"){
-            whoWon = "Player WINS!";
+    } else if (
+        (choice == "rock" && pcChoice == "scissors") ||
+        (choice == "paper" && pcChoice == "rock") ||
+        (choice == "scissors" && pcChoice == "paper")
+        ){
+        countPlayer ++;
+        return "Player WINS!";
 
     } else {
-        whoWon = "The Machine WINS!";
+        countPC ++;
+        return "The Machine WINS!";
     }
-
-    return displayOutcome(whoWon);
 }
 
-//PLAYING FIVE ROUNDS//
+function blockButtons(){
+    rock.disabled = "true";
+    paper.disabled = "true";
+    scissors.disabled = "true";
+}
 
-function game() {
-    
-    let countPC = 0;
-    let countPlayer = 0;
-    
+function unlockButtons(){
+    rock.removeAttribute('disabled');
+    paper.removeAttribute('disabled');
+    scissors.removeAttribute('disabled');
+}
 
-    
-    while (countPC < 3 && countPlayer < 3) {
-        let whoWon = oneRound();
 
-        if (whoWon == "The Machine WINS!"){
-            countPC++;
-        } else if (whoWon == "Player WINS!") {
-            countPlayer++;
-        } else 
-
-        return displayOutcome(whoWon, countPlayer + " : " + countPC);    
+function ultimateWinner(score){
+    if(countPlayer > countPC){
+        displayOutcome("PLAYER WON THE GAME", score)
+    } else {
+        displayOutcome("PC WON THE GAME", score)
     }
+}
+
+function game(){
+    clearOutcome();
+    const outcome = oneRound(this.id);
+    this.classList.add('playerChoice');
+
+    let score = countPlayer + " : " + countPC;
+
+    if(countPlayer < 5 && countPC < 5){
+        displayOutcome(outcome, score);
+        
+        setTimeout(rmChoices, 300);
+    } else {
+        blockButtons();
+        setTimeout(rmChoices, 300);
+        ultimateWinner(score);
+    }
+}
+
+function restartGame(){
+    countPC = 0;
+    countPlayer = 0;
+    clearOutcome();
+    setTimeout(rmChoices, 100);
+    displayOutcome("Choose rock, paper, or scissors to start.", countPC + " : " + countPC);
+    unlockButtons();
 }
 
 
 //TEST//
+let countPC = 0;
+let countPlayer = 0;
+let pcPanel = "";
 
-const divs = document.querySelectorAll('button');
 
-divs.forEach(div => div.addEventListener('click', oneRound,{
-  capture: false,
-}));
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+const restartButton = document.getElementById('restart');
+
+rock.addEventListener('click',game);
+paper.addEventListener('click',game);
+scissors.addEventListener('click',game);
+restartButton.addEventListener('click',restartGame);

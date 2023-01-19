@@ -18,11 +18,10 @@ body {
     background-color: #263159;
 }
 
-.hText {
+.hText, .scoreText, .winnerText ,#restart{
     color: #FFFBEB;
     font-size: 42px;
     font-weight: 500;
-    margin-top: 20px;
 }
 
 /*//// CONTENT ////*/
@@ -47,9 +46,9 @@ body {
     border-radius: 16px;
     background-color: #495579; 
 }
+.score   {margin-top: 5vh;}
 
-.score {
-    margin-top: 5vh;
+.score , .winner, #restart{
     border: 0px;
     border-style: solid;
     border-radius: 16px;
@@ -57,17 +56,9 @@ body {
     height: 15vh;
     background-color: #263159;
     color: #FFFBEB;
-}
-
-.winner {
-    border: 0px;
-    border-style: solid;
-    border-radius: 16px;
-    width: 80%;
-    max-height: 35vh;
-    background-color: #263159;
-    color: #FFFBEB;
-    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /*//// PANELS & BUTTONS ////*/
 
@@ -96,11 +87,29 @@ body {
     align-items: center;
     justify-content: space-around;
     background-color: #263159;
-    color: #FFFBEB;
+}
+
+.winnerText , #restart{
+    font-size: 28px;
+    text-align: center;
 }
 
 .emoji {
     font-size: 80px;
+}
+
+.pcChoice {
+    border: 0px;
+    border-style: solid;
+    border-radius: 16px;
+    background-color: #5F021F;
+}
+
+.playerChoice {
+    border: 0px;
+    border-style: solid;
+    border-radius: 16px;
+    background-color: #5F021F;
 }
 
 /*//// FOOTER ////*/
